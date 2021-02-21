@@ -21,6 +21,14 @@ public class EvilArrowMissile : EvilMissile
         //this peace of code is important to gameplay and can be improved much more
 
         GetComponent<Rigidbody2D>().AddForce(angle.normalized * EMissilesForce);
+
+        StartCoroutine(Die());
+    }
+
+    private IEnumerator Die()
+    {
+        yield return new WaitForSeconds(6);
+        Destroy(gameObject);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
