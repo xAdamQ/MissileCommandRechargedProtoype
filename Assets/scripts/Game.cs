@@ -20,7 +20,7 @@ public class Game : MonoBehaviour
         GameData.I = new GameData
         {
             Speed = 300,
-            BaseRebuildTime = 1,
+            BaseRebuildTime = 2,
             BaseReloadTime = 1.5f,
             Power = 1
         };

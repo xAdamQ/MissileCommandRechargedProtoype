@@ -1,9 +1,5 @@
-using System;
-using System.Collections;
-using Cysharp.Threading.Tasks;
 using UnityEngine;
 using DG.Tweening;
-using Unity.VisualScripting;
 
 public class Base : Building
 {
@@ -16,12 +12,14 @@ public class Base : Building
     private void Start()
     {
         Ready = true;
+        Built = true;
     }
 
     public override void Destroy()
     {
         var exp = Instantiate(ExplosionPrefab, transform).GetComponent<Explosion>();
-        exp.OnExplosionComplete += () => Rebuild();
+        // exp.OnExplosionComplete += () =>
+        Rebuild();
         exp.Explode();
     }
 
@@ -62,7 +60,7 @@ public class Base : Building
 
     public void Shoot(Vector2 targetPos)
     {
-        if (!Ready) return;
+        if (!Ready || !Built) return;
 
         Reload();
 

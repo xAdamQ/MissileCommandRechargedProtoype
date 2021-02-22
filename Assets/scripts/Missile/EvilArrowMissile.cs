@@ -1,6 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
-using MiscUtil.Xml.Linq.Extensions;
 using UnityEngine;
 
 public class EvilArrowMissile : EvilMissile
